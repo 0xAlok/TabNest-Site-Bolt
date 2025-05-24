@@ -1,0 +1,830 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const chromeStoreLink = "https://chrome.google.com/webstore/category/extensions";
+const edgeStoreLink = "https://microsoftedge.microsoft.com/addons/Microsoft-Edge-Extensions-Home";
+
+const features = [
+  {
+    icon: "💾",
+    title: "One-Click Session Nirvana",
+    description: "Instantly snapshot your entire browser state—tabs, groups, windows. One click to save, one click to restore. Pure bliss."
+  },
+  {
+    icon: "🌪️", // Changed icon
+    title: "Group Guru",
+    description: "Master your tab groups like never before. TabNest flawlessly preserves your meticulously organized workspaces."
+  },
+  {
+    icon: "⚡️",
+    title: "Warp Speed Performance",
+    description: "Built for speed. TabNest is so lightweight, you'll forget it's there... until you desperately need it."
+  },
+  {
+    icon: "💎", // Changed icon
+    title: "Fort Knox Persistence",
+    description: "Your sessions are sacred. Stored securely, ready for revival after restarts, crashes, or alien invasions."
+  }
+];
+
+const howItWorksSteps = [
+  {
+    step: 1,
+    title: "Capture the Chaos",
+    description: "Hit 'Save Session' in TabNest. All open tabs & groups are instantly immortalized. Boom."
+  },
+  {
+    step: 2,
+    title: "Browse Unburdened",
+    description: "Close everything. Restart. Go wild. Your digital life is safely tucked away in the Nest."
+  },
+  {
+    step: 3,
+    title: "Instant Rebirth",
+    description: "Open TabNest, click your saved session. Watch in awe as your tabs & groups resurrect perfectly."
+  }
+];
+
+const faqs = [
+  {
+    question: "Is TabNest really free?",
+    answer: "Absolutely! TabNest is 100% free to use. We believe in making your browsing life easier without hidden costs."
+  },
+  {
+    question: "Where is my session data stored?",
+    answer: "Your session data is stored locally in your browser's storage. It does not leave your computer, ensuring your privacy."
+  },
+  {
+    question: "Will it slow down my browser?",
+    answer: "Not at all! TabNest is designed to be extremely lightweight and optimized for performance. You won't even notice it's running."
+  },
+  {
+    question: "Can I sync sessions across devices?",
+    answer: "Currently, TabNest sessions are local to the browser they were saved in. Cross-device sync is a feature we're exploring for the future!"
+  }
+];
+---
+
+<Layout title="TabNest: Your Tabs. Unleashed.">
+  <main>
+    <!-- Hero Section -->
+    <section id="hero" class="hero-section section-padding">
+      <div class="container text-center">
+        <div class="hero-content">
+          <h1 class="hero-headline">
+            <span class="highlight-text">Stop Losing Tabs.</span><br/> Start Dominating Them.
+          </h1>
+          <p class="hero-subheadline">
+            TabNest is your one-click command center for browser sessions. Save, restore, and conquer tab chaos like a pro.
+          </p>
+          <div class="cta-buttons hero-cta">
+            <a href={chromeStoreLink} class="cta-button primary large" target="_blank" rel="noopener noreferrer">
+              Add to Chrome <span class="rocket-icon">🚀</span>
+            </a>
+            <a href={edgeStoreLink} class="cta-button secondary large" target="_blank" rel="noopener noreferrer">
+              Get for Edge
+            </a>
+          </div>
+        </div>
+        <div class="hero-visual-placeholder">
+          <!-- Replace with actual animation/mockup -->
+          <div class="mockup-browser">
+            <div class="mockup-header">
+              <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+              <div class="mockup-address-bar">tabnest.extension/dashboard</div>
+            </div>
+            <div class="mockup-content">
+              <div class="mockup-tab active">Project Phoenix</div>
+              <div class="mockup-tab">Research</div>
+              <div class="mockup-tab">Memes</div>
+              <div class="mockup-saved-session">✨ Morning Workflow - Saved! ✨</div>
+            </div>
+          </div>
+          <p class="visual-caption">Visualize your clutter-free future.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Problem/Solution Section -->
+    <section id="problem-solution" class="problem-solution-section section-padding">
+      <div class="container">
+        <div class="problem-solution-grid">
+          <div class="problem-card">
+            <h2 class="section-title">Tab Overload <span class="fire-icon">🔥</span> Your Brain?</h2>
+            <p>
+              Endless tabs. Lost context. Accidental closures. Browser crashes. If this sounds familiar, you're losing time and sanity. It's a digital battlefield out there.
+            </p>
+          </div>
+          <div class="solution-card">
+            <h3 class="solution-subtitle">TabNest: Your Secret Weapon.</h3>
+            <p>
+              Imagine: one click to save *everything*. One click to bring it all back. TabNest transforms tab turmoil into tranquil productivity. It's not magic, it's just smart.
+            </p>
+            <a href="#features" class="cta-button secondary small">See The Magic <span class="arrow">&rarr;</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Key Features Section -->
+    <section id="features" class="features-section section-padding">
+      <div class="container">
+        <h2 class="section-title text-center">Why TabNest Slaps <span class="slap-icon">👋</span></h2>
+        <div class="features-grid">
+          {features.map(feature => (
+            <div class="feature-card">
+              <div class="feature-icon-wrapper">
+                <span class="feature-icon-main">{feature.icon}</span>
+              </div>
+              <h3 class="feature-title">{feature.title}</h3>
+              <p class="feature-description">{feature.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="how-it-works-section section-padding">
+      <div class="container">
+        <h2 class="section-title text-center">3 Steps to Tab Zen <span class="zen-icon">🧘</span></h2>
+        <div class="how-it-works-steps">
+          {howItWorksSteps.map(step => (
+            <div class="step-card">
+              <div class="step-number-container">
+                <span class="step-number">{String(step.step).padStart(2, '0')}</span>
+              </div>
+              <div class="step-content">
+                <h3 class="step-title">{step.title}</h3>
+                <p class="step-description">{step.description}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Supported Browsers Section -->
+    <section id="supported-browsers" class="supported-browsers-section section-padding">
+      <div class="container text-center">
+        <h2 class="section-title">Works Where You Work</h2>
+        <div class="browser-logos">
+          <div class="browser-logo-item">
+            <img src="/chrome-logo-placeholder.svg" alt="Google Chrome Logo" class="browser-logo-img" />
+            <p>Google Chrome</p>
+          </div>
+          <div class="browser-logo-item">
+            <img src="/edge-logo-placeholder.svg" alt="Microsoft Edge Logo" class="browser-logo-img" />
+            <p>Microsoft Edge</p>
+          </div>
+        </div>
+        <p class="firefox-notice">Firefox & Safari support: <span class="soon-text">SOON™</span> (We're cookin'!)</p>
+      </div>
+    </section>
+    
+    <!-- FAQ Section -->
+    <section id="faq" class="faq-section section-padding">
+      <div class="container">
+        <h2 class="section-title text-center">Got Questions? We Got Answers. <span class="lightbulb-icon">💡</span></h2>
+        <div class="faq-accordion">
+          {faqs.map((faq, index) => (
+            <details class="faq-item" name="faq-accordion">
+              <summary class="faq-question">
+                {faq.question}
+                <span class="faq-icon">+</span>
+              </summary>
+              <div class="faq-answer">
+                <p>{faq.answer}</p>
+              </div>
+            </details>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Reinforcing Call to Action Section -->
+    <section id="reinforcing-cta" class="reinforcing-cta-section section-padding">
+      <div class="container text-center">
+        <h2 class="section-title">Don't Just Browse. <span class="highlight-text-alt">Conquer.</span></h2>
+        <p class="cta-subtext">
+          TabNest isn't just an extension, it's a productivity revolution.
+          Stop the tab madness. Start your reign.
+        </p>
+        <div class="testimonial-placeholder">
+          <p class="testimonial-text">"TabNest literally saved my PhD. My browser used to be a warzone. Now it's a zen garden. 10/10 would recommend."</p>
+          <p class="testimonial-author">- Dr. Actually Productive (Totally Real User™)</p>
+        </div>
+        <div class="cta-buttons">
+          <a href={chromeStoreLink} class="cta-button primary large" target="_blank" rel="noopener noreferrer">Install for Chrome NOW <span class="zap-icon">⚡</span></a>
+          <a href={edgeStoreLink} class="cta-button secondary large" target="_blank" rel="noopener noreferrer">Get for Microsoft Edge</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</Layout>
+
+<style>
+  /* Hero Section */
+  .hero-section {
+    background: var(--gradient-primary);
+    color: var(--text-light);
+    padding-top: clamp(5rem, 12vw, 8rem);
+    padding-bottom: clamp(5rem, 12vw, 8rem);
+    position: relative;
+    overflow: hidden; /* For pseudo-elements if added */
+  }
+  .hero-section::before { /* Subtle background pattern */
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-image: radial-gradient(circle at top left, rgba(255,255,255,0.05) 0%, transparent 30%),
+                      radial-gradient(circle at bottom right, rgba(255,255,255,0.05) 0%, transparent 30%);
+    opacity: 0.5;
+    z-index: 0;
+  }
+  .hero-section .container {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: center;
+    gap: 3rem;
+  }
+   @media (min-width: 992px) { /* Larger screens, side-by-side */
+    .hero-section .container {
+      grid-template-columns: minmax(auto, 550px) 1fr;
+      text-align: left;
+    }
+    .hero-cta {
+      justify-content: flex-start !important;
+    }
+  }
+
+  .hero-headline {
+    font-size: clamp(3rem, 7vw, 5.5rem); /* Even bigger */
+    color: var(--text-light);
+    margin-bottom: 1.5rem;
+    line-height: 1.1;
+    font-weight: 800; /* Syne bold */
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+  }
+  .hero-headline .highlight-text {
+    color: var(--alice-blue); /* Or a bright accent */
+    /* background: -webkit-linear-gradient(var(--electric-purple), var(--hot-pink));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; */
+    display: block; /* For effect */
+  }
+  .hero-subheadline {
+    font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+    color: var(--alice-blue-2);
+    max-width: 600px;
+    margin: 0 auto 2.5rem auto;
+    line-height: 1.6;
+    font-weight: 400;
+  }
+  @media (min-width: 992px) {
+    .hero-subheadline {
+      margin-left: 0;
+      margin-right: 0;
+    }
+  }
+
+  .cta-button.large {
+    padding: 1em 2.25em;
+    font-size: 1.125rem;
+  }
+  .cta-button .rocket-icon, .cta-button .zap-icon {
+    font-size: 1.2em;
+    display: inline-block;
+    animation: pulse-icon 2s infinite ease-in-out;
+  }
+  @keyframes pulse-icon {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+  }
+
+  .hero-visual-placeholder {
+    background-color: rgba(13, 14, 26, 0.3); /* Darker, semi-transparent */
+    border: none;
+    padding: 2rem;
+    margin: 2rem auto 0 auto;
+    max-width: 550px;
+    border-radius: 16px; /* More rounded */
+    box-shadow: var(--shadow-xl), 0 0 50px rgba(var(--electric-purple), 0.2);
+    transform: perspective(1000px) rotateX(5deg) rotateY(-5deg);
+    transition: transform 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+  }
+  .hero-visual-placeholder:hover {
+    transform: perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1.02);
+  }
+  .mockup-browser {
+    background: #2E3440; /* Nord-ish dark */
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    overflow: hidden;
+  }
+  .mockup-header {
+    padding: 0.75rem;
+    background: #3B4252; /* Nord-ish darker */
+    display: flex;
+    align-items: center;
+  }
+  .mockup-header .dot {
+    width: 12px; height: 12px; border-radius: 50%; margin-right: 6px;
+  }
+  .dot.red { background: #BF616A; }
+  .dot.yellow { background: #EBCB8B; }
+  .dot.green { background: #A3BE8C; }
+  .mockup-address-bar {
+    background: #4C566A; /* Nord-ish light */
+    color: #ECEFF4;
+    padding: 0.4rem 0.8rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    margin-left: auto;
+    width: 60%;
+  }
+  .mockup-content {
+    padding: 1rem;
+    min-height: 150px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .mockup-tab {
+    background: #434C5E; color: #D8DEE9; padding: 0.5rem 1rem; border-radius: 4px 4px 0 0; font-size: 0.85rem;
+    opacity: 0.7;
+  }
+  .mockup-tab.active { background: #88C0D0; color: #2E3440; font-weight: 600; opacity: 1;}
+  .mockup-saved-session {
+    margin-top: 1rem; padding: 0.75rem; background: var(--savoy-blue); color: var(--text-light); border-radius: 6px; text-align: center; font-weight: 600;
+    animation: glow 2s infinite alternate;
+  }
+  @keyframes glow {
+    from { box-shadow: 0 0 5px var(--savoy-blue), 0 0 10px var(--savoy-blue); }
+    to { box-shadow: 0 0 15px var(--savoy-blue), 0 0 25px var(--savoy-blue); }
+  }
+  .visual-caption {
+    font-size: 0.9rem;
+    color: var(--alice-blue-2);
+    margin-top: 1rem;
+    text-align: center;
+    opacity: 0.8;
+  }
+
+  /* Problem/Solution Section */
+  .problem-solution-section {
+    background-color: var(--alice-blue-2);
+  }
+  .problem-solution-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    align-items: center;
+  }
+  @media (min-width: 768px) {
+    .problem-solution-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  .problem-card, .solution-card {
+    padding: 2.5rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow-lg);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .problem-card:hover, .solution-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-xl);
+  }
+  .problem-card {
+    background: var(--text-light);
+  }
+  .solution-card {
+    background: var(--gradient-primary);
+    color: var(--text-light);
+  }
+  .problem-solution-section .section-title,
+  .problem-solution-section .solution-subtitle {
+    margin-bottom: 1.5rem;
+  }
+  .problem-solution-section .section-title { color: var(--resolution-blue); }
+  .problem-solution-section .solution-subtitle { color: var(--text-light); }
+  .problem-solution-section p {
+    font-size: 1.05rem;
+    line-height: 1.8;
+  }
+  .problem-card p { color: var(--text-muted); }
+  .solution-card p { color: var(--alice-blue-2); }
+  .solution-card .cta-button.secondary.small {
+    background-color: var(--text-light);
+    color: var(--savoy-blue);
+    border-color: transparent; /* Or var(--text-light) if you want a border */
+    font-size: 0.9rem;
+    padding: 0.7em 1.5em;
+  }
+  .solution-card .cta-button.secondary.small:hover {
+    background-color: var(--alice-blue-2);
+    color: var(--marian-blue);
+  }
+  .fire-icon, .slap-icon, .zen-icon, .lightbulb-icon {
+    display: inline-block;
+    animation: wiggle 1.5s infinite;
+  }
+  @keyframes wiggle {
+    0%, 100% { transform: rotate(-3deg); }
+    50% { transform: rotate(3deg); }
+  }
+
+  /* Key Features Section */
+  .features-section {
+    background-color: var(--alice-blue); /* Or a very light gradient */
+  }
+  .features-section .section-title {
+    margin-bottom: 4rem;
+  }
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2.5rem; /* Increased gap */
+  }
+  .feature-card {
+    background-color: var(--text-light);
+    padding: 2.5rem 2rem;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: var(--shadow-md);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    border: 1px solid var(--border-color);
+    position: relative;
+    overflow: hidden;
+  }
+  .feature-card::before { /* Subtle hover glow */
+    content: "";
+    position: absolute;
+    top: 50%; left: 50%;
+    width: 0; height: 0;
+    background: radial-gradient(circle, var(--savoy-blue) 0%, transparent 70%);
+    border-radius: 50%;
+    opacity: 0;
+    transform: translate(-50%, -50%);
+    transition: width 0.4s ease, height 0.4s ease, opacity 0.4s ease;
+    z-index: 0;
+  }
+  .feature-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: var(--shadow-lg);
+  }
+  .feature-card:hover::before {
+    width: 300px;
+    height: 300px;
+    opacity: 0.1;
+  }
+  .feature-icon-wrapper {
+    margin-bottom: 1.5rem;
+    position: relative;
+    z-index: 1;
+  }
+  .feature-icon-main {
+    font-size: 3rem; /* Larger icons */
+    line-height: 1;
+    display: inline-block;
+    padding: 0.5rem;
+    /* background: var(--alice-blue-2); */
+    /* border-radius: 50%; */
+    /* box-shadow: 0 0 0 8px var(--alice-blue); */
+    transition: transform 0.3s ease;
+  }
+  .feature-card:hover .feature-icon-main {
+    transform: scale(1.2) rotate(10deg);
+  }
+  .feature-title {
+    font-size: 1.375rem; /* Larger feature titles */
+    margin-bottom: 1rem;
+    color: var(--marian-blue);
+    position: relative;
+    z-index: 1;
+  }
+  .feature-description {
+    font-size: 1rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* How It Works Section */
+  .how-it-works-section {
+    background-color: var(--alice-blue-2);
+  }
+  .how-it-works-section .section-title {
+    margin-bottom: 4rem;
+  }
+  .how-it-works-steps {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  @media (min-width: 768px) {
+    .how-it-works-steps {
+      gap: 3rem; /* More space between steps on larger screens */
+    }
+  }
+  .step-card {
+    background-color: var(--text-light);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow-md);
+    display: flex;
+    align-items: flex-start; /* Align items to the top */
+    gap: 2rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-left: 5px solid var(--savoy-blue);
+  }
+  .step-card:hover {
+    transform: translateX(10px);
+    box-shadow: var(--shadow-lg);
+    border-left-color: var(--electric-purple);
+  }
+  .step-number-container {
+    flex-shrink: 0;
+  }
+  .step-number {
+    font-family: var(--font-display);
+    font-size: 3rem; /* Large step numbers */
+    font-weight: 800;
+    color: var(--savoy-blue);
+    line-height: 1;
+    transition: color 0.3s ease;
+  }
+  .step-card:hover .step-number {
+    color: var(--electric-purple);
+  }
+  .step-content {
+    flex-grow: 1;
+  }
+  .step-title {
+    font-size: 1.5rem; /* Larger step titles */
+    margin-bottom: 0.75rem;
+    color: var(--marian-blue);
+  }
+  .step-description {
+    font-size: 1rem;
+    color: var(--text-muted);
+    margin-bottom: 0;
+  }
+
+  /* Supported Browsers Section */
+  .supported-browsers-section {
+    background-color: var(--alice-blue);
+  }
+  .browser-logos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: clamp(2rem, 5vw, 4rem); /* Responsive gap */
+    margin-bottom: 2.5rem;
+    flex-wrap: wrap;
+  }
+  .browser-logo-item {
+    text-align: center;
+    transition: transform 0.3s ease;
+  }
+  .browser-logo-item:hover {
+    transform: scale(1.1);
+  }
+  .browser-logo-img {
+    width: clamp(70px, 10vw, 100px); /* Responsive logo size */
+    height: clamp(70px, 10vw, 100px);
+    margin-bottom: 1rem;
+    background-color: var(--text-light);
+    border-radius: 16px; /* More rounded */
+    padding: 1rem;
+    box-shadow: var(--shadow-md);
+    transition: box-shadow 0.3s ease;
+  }
+  .browser-logo-item:hover .browser-logo-img {
+    box-shadow: var(--shadow-lg);
+  }
+  .browser-logo-item p {
+    font-weight: 600;
+    color: var(--marian-blue);
+    margin-bottom: 0;
+    font-size: 1.1rem;
+  }
+  .firefox-notice {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+  }
+  .firefox-notice .soon-text {
+    font-weight: 700;
+    color: var(--savoy-blue);
+    /* text-transform: uppercase; */
+  }
+
+  /* FAQ Section */
+  .faq-section {
+    background-color: var(--alice-blue-2);
+  }
+  .faq-accordion {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .faq-item {
+    background-color: var(--text-light);
+    border-radius: 8px;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border-color);
+    transition: box-shadow 0.3s ease;
+  }
+  .faq-item:hover {
+    box-shadow: var(--shadow-md);
+  }
+  .faq-item[open] {
+    border-left: 4px solid var(--savoy-blue);
+  }
+  .faq-question {
+    padding: 1.25rem 1.5rem;
+    font-weight: 600;
+    font-size: 1.125rem;
+    color: var(--marian-blue);
+    cursor: pointer;
+    list-style: none; /* Remove default marker */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.2s ease;
+  }
+  .faq-question::-webkit-details-marker { display: none; } /* Hide Safari marker */
+  .faq-question:hover {
+    background-color: var(--alice-blue);
+  }
+  .faq-icon {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--savoy-blue);
+    transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55); /* Elastic transition */
+  }
+  .faq-item[open] .faq-icon {
+    transform: rotate(45deg);
+  }
+  .faq-answer {
+    padding: 0 1.5rem 1.5rem 1.5rem;
+    color: var(--text-muted);
+    font-size: 1rem;
+    line-height: 1.7;
+    border-top: 1px solid var(--border-color);
+    margin-top: -1px; /* Overlap border */
+  }
+  .faq-answer p {
+    margin-bottom: 0;
+  }
+
+
+  /* Reinforcing CTA Section */
+  .reinforcing-cta-section {
+    background-image: var(--gradient-accent); /* Using accent gradient */
+    color: var(--text-light);
+    position: relative;
+    overflow: hidden;
+  }
+  .reinforcing-cta-section::before { /* Overlay for texture */
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(transparent, rgba(0,0,0,0.2));
+    z-index: 0;
+  }
+  .reinforcing-cta-section .container {
+    position: relative;
+    z-index: 1;
+  }
+  .reinforcing-cta-section .section-title {
+    color: var(--text-light);
+    margin-bottom: 1rem;
+    text-shadow: 1px 1px 5px rgba(0,0,0,0.3);
+  }
+  .highlight-text-alt {
+    /* color: var(--neon-green); */ /* Or another bright accent */
+    display: inline-block;
+    padding: 0.1em 0.3em;
+    background-color: rgba(255,255,255,0.15);
+    border-radius: 4px;
+  }
+  .cta-subtext {
+    font-size: clamp(1.1rem, 2vw, 1.3rem);
+    color: var(--alice-blue);
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 2.5rem;
+    line-height: 1.6;
+  }
+  .testimonial-placeholder {
+    margin: 2.5rem auto;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    padding: 2rem;
+    max-width: 600px;
+    border-radius: 12px;
+    border: 1px solid rgba(255,255,255,0.2);
+    box-shadow: var(--shadow-lg);
+  }
+  .testimonial-text {
+    font-style: italic;
+    font-size: 1.1rem;
+    color: var(--text-light);
+    margin-bottom: 1rem;
+  }
+  .testimonial-author {
+    font-weight: 600;
+    color: var(--alice-blue-2);
+    font-size: 0.9rem;
+    text-align: right;
+  }
+  .reinforcing-cta-section .cta-button.primary {
+    background: var(--text-light);
+    color: var(--hot-pink); /* Use accent color */
+    box-shadow: 0 4px 20px rgba(255, 0, 127, 0.5);
+  }
+  .reinforcing-cta-section .cta-button.primary:hover {
+    background: var(--alice-blue-2);
+    color: var(--electric-purple);
+    box-shadow: 0 8px 30px rgba(191, 0, 255, 0.6);
+  }
+  .reinforcing-cta-section .cta-button.secondary {
+    border-color: var(--alice-blue);
+    color: var(--alice-blue);
+  }
+  .reinforcing-cta-section .cta-button.secondary:hover {
+    background-color: var(--alice-blue);
+    color: var(--resolution-blue);
+  }
+
+  /* Responsive adjustments for "hard" design */
+  @media (max-width: 991px) { /* Adjust breakpoint for hero layout change */
+    .hero-section .container {
+      text-align: center; /* Ensure hero content is centered on smaller screens */
+    }
+    .hero-cta {
+      justify-content: center !important;
+    }
+    .hero-visual-placeholder {
+      margin-top: 3rem; /* More space above visual on mobile */
+      transform: perspective(800px) rotateX(3deg); /* Simpler transform for mobile */
+    }
+    .hero-visual-placeholder:hover {
+      transform: perspective(800px) rotateX(0deg) scale(1.01);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .section-title {
+      font-size: clamp(1.8rem, 6vw, 2.5rem); /* Responsive section titles */
+      margin-bottom: 2.5rem;
+    }
+    .features-grid {
+      grid-template-columns: 1fr; /* Stack cards on smaller screens */
+    }
+    .how-it-works-steps {
+      gap: 2rem;
+    }
+    .step-card {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 1.5rem;
+      border-left-width: 0;
+      border-top: 5px solid var(--savoy-blue);
+    }
+    .step-card:hover {
+      transform: translateY(-5px); /* Adjusted hover for stacked cards */
+      border-top-color: var(--electric-purple);
+    }
+    .step-number-container {
+      margin-bottom: 0.5rem;
+    }
+    .browser-logos {
+      gap: 2rem;
+    }
+    .browser-logo-img {
+      width: clamp(60px, 15vw, 80px);
+      height: clamp(60px, 15vw, 80px);
+    }
+    .faq-question {
+      font-size: 1.05rem;
+      padding: 1rem 1.25rem;
+    }
+    .faq-answer {
+      padding: 0 1.25rem 1.25rem 1.25rem;
+    }
+  }
+</style>

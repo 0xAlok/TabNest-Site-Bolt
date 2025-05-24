@@ -1,0 +1,6 @@
+<svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="80" height="80" rx="12" fill="#E0E0E0"/>
+<path d="M20 40C20 28.9543 28.9543 20 40 20C51.0457 20 60 28.9543 60 40C60 47.4734 55.7255 53.9022 49.2794 57.0916C49.2794 57.0916 40 40 40 40C40 40 30.7206 57.0916 30.7206 57.0916C24.2745 53.9022 20 47.4734 20 40Z" fill="#0078D4"/>
+<path d="M40 40L49.2794 57.0916C46.3619 59.0183 43.2668 60 40 60C36.7332 60 33.6381 59.0183 30.7206 57.0916L40 40Z" fill="#005A9E"/>
+<text x="50%" y="90%" dominant-baseline="middle" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#555555">Edge</text>
+</svg>

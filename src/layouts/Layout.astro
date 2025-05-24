@@ -1,0 +1,407 @@
+---
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+const currentYear = new Date().getFullYear();
+
+// Consistent placeholder links
+const chromeStoreLink = "https://chrome.google.com/webstore/category/extensions"; // Replace
+const edgeStoreLink = "https://microsoftedge.microsoft.com/addons/Microsoft-Edge-Extensions-Home"; // Replace
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="TabNest: Reclaim Your Tabs, Effortlessly. Save and restore browser tabs and tab groups with a single click." />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+	</head>
+	<body>
+		<header class="site-header">
+			<nav class="container">
+				<div class="logo">
+					<span>Tab</span><span class="logo-nest">Nest</span>
+				</div>
+				<div class="nav-actions">
+					<a href={chromeStoreLink} class="cta-button nav-cta" target="_blank" rel="noopener noreferrer">Get Extension</a>
+				</div>
+			</nav>
+		</header>
+
+		<slot />
+
+		<footer class="site-footer-main">
+			<div class="container">
+				<h2 class="footer-title">Ready to Tame Your Tabs?</h2>
+				<p class="footer-subtitle">Download TabNest and transform your browsing experience today.</p>
+				<div class="cta-buttons footer-cta">
+					<a href={chromeStoreLink} class="cta-button primary" target="_blank" rel="noopener noreferrer">Add to Chrome <span class="arrow">&rarr;</span></a>
+					<a href={edgeStoreLink} class="cta-button secondary" target="_blank" rel="noopener noreferrer">Get for Edge <span class="arrow">&rarr;</span></a>
+				</div>
+				<div class="footer-links">
+					<a href="#privacy">Privacy Policy</a>
+					<a href="#contact">Contact/Support</a>
+					<a href="#faq">FAQ</a>
+				</div>
+				<p class="copyright">&copy; {currentYear} TabNest. Designed to go unnecessarily hard.</p>
+			</div>
+		</footer>
+	</body>
+</html>
+<style is:global>
+	:root {
+		--savoy-blue: #6A6DFF; /* Slightly brighter for more pop */
+		--marian-blue: #4A4FD5; /* Deepened for contrast */
+		--resolution-blue: #2C2F9E; /* Richer dark blue */
+		--alice-blue: #F0F4FF; /* Off-white, softer than pure white */
+		--alice-blue-2: #E6ECFF; /* Slightly darker off-white for depth */
+		
+		--electric-purple: #BF00FF; /* Accent for "hard" feel */
+		--hot-pink: #FF007F; /* Another accent */
+		--neon-green: #39FF14; /* For highlights or specific CTAs if needed */
+
+		--text-dark: #0D0E1A; 
+		--text-light: #FFFFFF;
+		--text-muted: #5A647C;
+
+		--border-color: #D0D8EA;
+
+		--font-primary: 'Inter', sans-serif;
+		--font-display: 'Syne', sans-serif; /* For impactful headlines */
+
+		--shadow-sm: 0 2px 4px rgba(44, 47, 158, 0.05);
+		--shadow-md: 0 5px 15px rgba(44, 47, 158, 0.1);
+		--shadow-lg: 0 10px 30px rgba(44, 47, 158, 0.15);
+		--shadow-xl: 0 20px 50px rgba(44, 47, 158, 0.2);
+
+		--gradient-primary: linear-gradient(45deg, var(--savoy-blue), var(--marian-blue));
+		--gradient-accent: linear-gradient(45deg, var(--electric-purple), var(--hot-pink));
+	}
+
+	/* Reset and Base Styles */
+	*,
+	*::before,
+	*::after {
+		box-sizing: border-box;
+		margin: 0;
+		padding: 0;
+	}
+
+	html {
+		font-family: var(--font-primary);
+		font-size: 16px; /* Base font size */
+		line-height: 1.7;
+		scroll-behavior: smooth;
+		background-color: var(--alice-blue);
+		color: var(--text-dark);
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+	}
+
+	body {
+		min-height: 100vh;
+		display: flex;
+		flex-direction: column;
+		overflow-x: hidden; /* Prevent horizontal scroll from animations */
+	}
+
+	main {
+		flex-grow: 1;
+	}
+
+	h1, h2, h3, h4, h5, h6 {
+		font-family: var(--font-display);
+		font-weight: 800;
+		line-height: 1.2;
+		color: var(--resolution-blue);
+		letter-spacing: -0.02em; /* Tighter letter spacing for display font */
+	}
+
+	h1 { font-size: clamp(2.5rem, 5vw + 1rem, 4.5rem); } /* Responsive heading */
+	h2 { font-size: clamp(2rem, 4vw + 0.8rem, 3.5rem); }
+	h3 { font-size: clamp(1.5rem, 3vw + 0.6rem, 2.5rem); }
+	
+	p {
+		margin-bottom: 1.5rem;
+		color: var(--text-muted);
+		font-size: clamp(1rem, 0.5vw + 0.9rem, 1.125rem);
+	}
+	a {
+		color: var(--savoy-blue);
+		text-decoration: none;
+		transition: color 0.2s ease-in-out;
+	}
+	a:hover {
+		color: var(--marian-blue);
+		text-decoration: underline;
+		text-decoration-thickness: 2px;
+	}
+
+	img, svg {
+		max-width: 100%;
+		height: auto;
+		display: block;
+	}
+
+	/* Utility Classes */
+	.container {
+		width: 90%;
+		max-width: 1200px; /* Slightly wider for more impact */
+		margin-left: auto;
+		margin-right: auto;
+		padding-left: 1.5rem;
+		padding-right: 1.5rem;
+	}
+
+	.text-center {
+		text-align: center;
+	}
+
+	.section-padding {
+		padding-top: clamp(4rem, 10vw, 8rem); /* Responsive padding */
+		padding-bottom: clamp(4rem, 10vw, 8rem);
+	}
+
+	.visually-hidden {
+		position: absolute;
+		width: 1px;
+		height: 1px;
+		padding: 0;
+		margin: -1px;
+		overflow: hidden;
+		clip: rect(0, 0, 0, 0);
+		white-space: nowrap;
+		border: 0;
+	}
+
+	/* Buttons */
+	.cta-button {
+		display: inline-flex; /* For aligning icon/text */
+		align-items: center;
+		gap: 0.5em;
+		padding: 0.875em 1.75em; /* Em-based padding for scalability */
+		border-radius: 50px; /* Pill shape */
+		font-weight: 700;
+		font-family: var(--font-primary);
+		text-align: center;
+		transition: all 0.25s cubic-bezier(0.25, 0.8, 0.25, 1);
+		border: 2px solid transparent;
+		cursor: pointer;
+		font-size: 1rem; /* Base button font size */
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+		box-shadow: var(--shadow-sm);
+	}
+	.cta-button .arrow {
+		transition: transform 0.2s ease-out;
+	}
+	.cta-button:hover .arrow {
+		transform: translateX(4px);
+	}
+
+	.cta-button.primary {
+		background-image: var(--gradient-primary);
+		color: var(--text-light);
+		box-shadow: 0 4px 15px rgba(var(--savoy-blue), 0.4);
+	}
+	.cta-button.primary:hover {
+		transform: translateY(-3px) scale(1.03);
+		box-shadow: 0 8px 25px rgba(var(--savoy-blue), 0.5);
+		text-decoration: none;
+	}
+	.cta-button.secondary {
+		background-color: var(--text-light);
+		color: var(--savoy-blue);
+		border: 2px solid var(--savoy-blue);
+	}
+	.cta-button.secondary:hover {
+		background-color: var(--savoy-blue);
+		color: var(--text-light);
+		border-color: var(--savoy-blue);
+		transform: translateY(-3px) scale(1.03);
+		box-shadow: 0 8px 25px rgba(var(--savoy-blue), 0.3);
+		text-decoration: none;
+	}
+	.cta-buttons {
+		display: flex;
+		gap: 1.5rem;
+		justify-content: center;
+		flex-wrap: wrap;
+	}
+
+	/* Header */
+	.site-header {
+		background-color: rgba(240, 244, 255, 0.8); /* Semi-transparent alice blue */
+		backdrop-filter: blur(10px);
+		-webkit-backdrop-filter: blur(10px);
+		padding: 1.5rem 0;
+		border-bottom: 1px solid var(--border-color);
+		position: sticky;
+		top: 0;
+		z-index: 1000;
+		transition: background-color 0.3s ease, box-shadow 0.3s ease;
+	}
+	/* Add a subtle shadow on scroll */
+	/* body:not([data-scroll-top="true"]) .site-header {
+		box-shadow: var(--shadow-md);
+	} */
+	.site-header .container {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+	.logo {
+		font-family: var(--font-display);
+		font-size: 2.25rem;
+		font-weight: 800;
+		color: var(--resolution-blue);
+		letter-spacing: -0.05em;
+	}
+	.logo .logo-nest {
+		color: var(--savoy-blue);
+		/* text-shadow: 1px 1px 0 var(--electric-purple); */
+	}
+	.nav-actions .nav-cta {
+		font-size: 0.9rem;
+		padding: 0.6em 1.2em;
+		background: var(--savoy-blue);
+		color: var(--text-light);
+	}
+	.nav-actions .nav-cta:hover {
+		background: var(--marian-blue);
+		transform: translateY(-2px);
+	}
+
+
+	/* Footer */
+	.site-footer-main {
+		background: var(--resolution-blue);
+		/* background-image: linear-gradient(to bottom, var(--marian-blue), var(--resolution-blue)); */
+		color: var(--alice-blue-2);
+		padding: 4rem 0 3rem;
+		text-align: center;
+	}
+	.site-footer-main .container {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 2rem;
+	}
+	.footer-title {
+		color: var(--text-light);
+		font-size: clamp(1.8rem, 3.5vw + 0.7rem, 2.8rem);
+		margin-bottom: 0.5rem;
+	}
+	.footer-subtitle {
+		color: var(--alice-blue);
+		font-size: clamp(1rem, 0.5vw + 0.9rem, 1.125rem);
+		max-width: 600px;
+		margin-bottom: 1.5rem;
+	}
+	.site-footer-main .cta-button.primary {
+		background: var(--savoy-blue); /* Brighter for dark bg */
+		box-shadow: 0 4px 15px rgba(var(--savoy-blue), 0.5);
+	}
+	.site-footer-main .cta-button.primary:hover {
+		background: var(--electric-purple); /* Accent hover */
+		box-shadow: 0 8px 25px rgba(var(--electric-purple), 0.6);
+	}
+	.site-footer-main .cta-button.secondary {
+		color: var(--text-light);
+		border-color: var(--alice-blue);
+	}
+	.site-footer-main .cta-button.secondary:hover {
+		background-color: var(--alice-blue);
+		color: var(--resolution-blue);
+		border-color: var(--alice-blue);
+	}
+	.footer-links {
+		display: flex;
+		gap: 2rem;
+		margin-top: 1rem;
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+	.footer-links a {
+		color: var(--alice-blue);
+		font-size: 0.9rem;
+		font-weight: 500;
+		transition: color 0.2s ease, transform 0.2s ease;
+	}
+	.footer-links a:hover {
+		color: var(--hot-pink);
+		transform: translateY(-2px);
+		text-decoration: none;
+	}
+	.copyright {
+		font-size: 0.875rem;
+		color: var(--marian-blue); /* Muted on dark bg */
+		margin-top: 1.5rem;
+		margin-bottom: 0;
+	}
+
+	/* Responsive adjustments */
+	@media (max-width: 768px) {
+		.cta-buttons {
+			flex-direction: column;
+			align-items: stretch; /* Make buttons full width in column */
+		}
+		.cta-button {
+			width: 100%;
+			max-width: 350px; /* Max width for stacked buttons */
+			margin-left: auto;
+			margin-right: auto;
+		}
+		.site-header .container {
+			flex-direction: column;
+			gap: 1rem;
+		}
+		.logo {
+			font-size: 2rem;
+		}
+		.nav-actions {
+			width: 100%;
+			text-align: center;
+		}
+		.nav-actions .nav-cta {
+			display: block;
+			max-width: 250px;
+			margin: 0 auto;
+		}
+	}
+
+	/* Animations & Effects (can be expanded) */
+	@keyframes fadeIn {
+		from { opacity: 0; }
+		to { opacity: 1; }
+	}
+	@keyframes fadeInUp {
+		from { opacity: 0; transform: translateY(20px); }
+		to { opacity: 1; transform: translateY(0); }
+	}
+	@keyframes scaleUp {
+		from { transform: scale(0.9); opacity: 0; }
+		to { transform: scale(1); opacity: 1; }
+	}
+
+	/* Example usage for scroll animations (would require JS Intersection Observer) */
+	.animate-on-scroll {
+		opacity: 0;
+		transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+	}
+	.animate-on-scroll.is-visible {
+		opacity: 1;
+		transform: none !important; /* Override initial transform */
+	}
+	.fade-in-up.is-visible { transform: translateY(0); }
+	.scale-up.is-visible { transform: scale(1); }
+
+</style>
